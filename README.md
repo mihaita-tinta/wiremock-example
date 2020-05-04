@@ -60,3 +60,51 @@ Response:
 ```
 
 * GET /transactions
+
+```shell script
+curl -X GET \
+  http://localhost:8080/transactions \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: localhost:8080' \
+  -H 'Postman-Token: 2074a151-2443-4533-ac12-6cbc12b2383b,8cb4bea5-5b77-4120-8ba4-8f74686fdb89' \
+  -H 'User-Agent: PostmanRuntime/7.19.0' \
+  -H 'X-AUTH: eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE1ODg1Nzk2MDYsImp0aSI6IllqeVhxdG0wRGdmVFVrYk1DZDhMLWciLCJpYXQiOjE1ODg1NzkwMDYsIm5iZiI6MTU4ODU3ODg4Niwic3ViIjoiaW9uZXNjdXNzIn0.F3SseLsaG1ndLPXrN45e_3LOlTSIcTXuIUkWSo0rFmMrGhti6uCYd1ATV_ud98dUkPSdne1zVamL5yonUu-3Wx7fDlr16rYp8P3GIH4Y6hIskNvNvF1bYEY6CQPWtu-qfX6uvCo3HgD2VBLqOS_PqWkLG2FfYl6zpXn9qNRbHDtGmv9H4qLMizxtkdElkX4A9xC0WMbya1JjJcRIMt44eyQzudR6DyKRQTpAEyEnv7OkgmPAO86YKrFEmcDlxPMGwUXur7BJ0ih7Nmrla0NfsQeekrwhOg_jQ9VWHMllqjM5HuwkyhdG9RoEf1ppwxBn2Yo4a3yPPMXPzs0owE9p4w' \
+  -H 'cache-control: no-cache'
+```
+
+Response:
+
+```json
+[
+      {
+            "id": "53b4d20f-a32e-4e6b-a71e-fc62ace8c910",
+            "accountId": "a7065dce-6a18-428a-901d-cca14740af16",
+            "exchangeRate": {
+                  "currencyFrom": "EUR",
+                  "currencyTo": "USD",
+                  "rate": 1.1
+            },
+            "originalAmount": {
+                  "amount": 106.17285630918292,
+                  "currency": "USD"
+            },
+            "creditor": {
+                  "maskedPan": "XXXXXXXXXX1230",
+                  "name": "Creditor 1230"
+            },
+            "debtor": {
+                  "maskedPan": "XXXXXXXXXX9870",
+                  "name": "DebtorName 9870"
+            },
+            "status": "BOOKED",
+            "currency": "EUR",
+            "amount": 96.52077846289356,
+            "update": "2020-05-04T07:57:02.719+0000",
+            "description": "Mc Donalds Amsterdam transaction - 0"
+      }
+]
+```

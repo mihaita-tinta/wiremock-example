@@ -31,7 +31,7 @@
                             "update": "[(${#temporals.formatISO(#temporals.createNow())})]",
                             "description": "Mc Donalds Amsterdam transaction - [(${index.current})]"
                           [/]
-                          }
+                          }[# th:if="!${index.last}" ],[/]
                     [/]
           [/]
     [/]
