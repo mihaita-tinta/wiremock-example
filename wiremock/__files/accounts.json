@@ -1,0 +1,15 @@
+[{
+[# th:with="sub=(${utils.accessToken(XAUTH, true).getClaimValue('sub')})"]
+[# th:with="id=(${session.get(sub + '-account') != null ? session.get(sub + '-account') : utils.uuid()})"]
+ [(${session.put(sub + '-account', id) != null? "": ""})]
+  "id": "[(${id})]",
+  "update": "[(${#temporals.formatISO(#temporals.createNow())})]",
+  "name": "Account-[(${sub})]",
+  "product": "Gold account.",
+  "status": "ENABLED",
+  "type": "CREDIT_CARD",
+  "balance": [(${(utils.random().nextDouble() * 10000)})]
+[/]
+[/]
+}
+]

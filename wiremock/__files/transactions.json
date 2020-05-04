@@ -1,0 +1,39 @@
+[
+[# th:with="sub=(${utils.accessToken(XAUTH, true).getClaimValue('sub')})"]
+    [# th:with="accountId=(${session.get(sub + '-account')})"]
+          [# th:if="${accountId != null}"]
+                    [# th:each="element,index : ${utils.list(utils.random().nextInt(100) + 1)}" ]
+                          {
+                          [# th:with="id=(${session.get(accountId + '-transaction-' + index.current) != null ? session.get(accountId + '-transaction-' + index.current) : utils.uuid()}),amount=(${utils.random().nextDouble() * 100})"]
+                            [(${session.put(accountId + '-transaction-' + index.current, id) != null? "": ""})]
+                            "id": "[(${id})]",
+                            "accountId": "[(${accountId})]",
+                            "exchangeRate": {
+                                  "currencyFrom": "EUR",
+                                  "currencyTo": "USD",
+                                  "rate": 1.1
+                            },
+                            "originalAmount": {
+                                  "amount": [(${amount * 1.1})],
+                                  "currency": "USD"
+                            },
+                            "creditor": {
+                              "maskedPan": "XXXXXXXXXX123[(${index.current})]",
+                                  "name": "Creditor 123[(${index.current})]"
+                            },
+                            "debtor": {
+                              "maskedPan": "XXXXXXXXXX987[(${index.current})]",
+                                  "name": "DebtorName 987[(${index.current})]"
+                            },
+                            "status": "BOOKED",
+                            "currency": "EUR",
+                            "amount": [(${amount})],
+                            "update": "[(${#temporals.formatISO(#temporals.createNow())})]",
+                            "description": "Mc Donalds Amsterdam transaction - [(${index.current})]"
+                          [/]
+                          }
+                    [/]
+          [/]
+    [/]
+[/]
+]

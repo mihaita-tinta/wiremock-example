@@ -1,0 +1,18 @@
+{
+	"request": {
+		"method": "POST",
+		"url": "/login"
+	},
+	"response": {
+		"status": 200,
+		"headers": {
+			"Content-Type": "application/json",
+			"Cache-Control": "no-cache"
+		},
+		"bodyFileName": "login.json",
+		"transformers": ["thymeleaf-body-transformer"],
+		"transformerParameters": {
+			"urlRegex" : "/login"
+		}
+	}
+}
