@@ -2,6 +2,11 @@
 
 Example of using a custom wiremock-body-transformer extension.
 
+To run the mock:
+```
+docker run -it --rm -p 8080:8080 mihaitatinta/wiremock-example
+```
+
 The API contains 3 endpoints:
 * POST /login
   Generates a JWT with the subject value from the header: `username`
@@ -107,4 +112,20 @@ Response:
             "description": "Mc Donalds Amsterdam transaction - 0"
       }
 ]
+```
+
+## Build
+If you want to make any changes you can build your own version:
+
+```shell script
+docker build . -t mihaitatinta/wiremock-example
+```
+Instead of creating many images you can better attach the volume to your container:
+
+```shell script
+docker run -it --rm -p 8080:8080 -v $PWD/wiremock:/home/wiremock:ro -w /home/wiremock mihaitatinta/wiremock-example
+```
+To publish the image just run;
+```shell script
+docker push mihaitatinta/wiremock-example
 ```
