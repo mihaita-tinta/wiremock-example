@@ -4,7 +4,7 @@ Example of using a custom wiremock-body-transformer extension.
 
 To run the mock:
 ```
-docker run -it --rm -p 8080:8080 mihaitatinta/wiremock-example
+docker run -it --rm -p 8080:8080 mihaitatinta/wiremock-example:0.0.1
 ```
 
 The API contains 3 endpoints:
